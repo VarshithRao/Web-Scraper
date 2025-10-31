@@ -1,4 +1,5 @@
 Web Scraper
+Overview
 
 This is a robust and flexible web scraper built using Python, requests, and BeautifulSoup.
 It is designed to extract essential information from any website, such as:
@@ -39,15 +40,62 @@ SSL error handling – Retries with SSL verification disabled if needed
 
 Exception handling – Handles network, HTTP, and parsing errors gracefully
 
-***Requirements***
+Requirements
 
-*   Python 3.7+                        
-*   requests
-*   beautifulsoup4
+Python 3.7+
 
-INSTALL DEPENDENCES USING :
+requests
+
+beautifulsoup4
+
+Install dependencies using:
+
 pip install requests beautifulsoup4
 
+Usage
+from scraper import scrape_generic_website
 
-***License***
+url = "https://spring.io/projects/spring-boot"
+scrape_generic_website(url)
+
+
+Output includes:
+
+Page title
+
+First paragraph
+
+First 5 links
+
+First 3 images
+
+Optional Settings
+
+You can customize:
+
+Retries – Number of retry attempts if request fails
+
+Delay – Minimum and maximum delay between requests
+
+SSL Verification – Enable or disable SSL certificate verification
+
+Example:
+
+scrape_generic_website(
+    url, 
+    retries=5, 
+    delay_range=(2, 5), 
+    verify_ssl=True
+)
+
+Notes
+
+Designed for educational and personal use
+
+Avoid sending too many requests too quickly to prevent blocking by websites
+
+Some websites with JavaScript-loaded content may not work directly with this scraper
+
+License
+
 MIT License – Free to use, modify, and distribute
